@@ -6,13 +6,13 @@ const Game = () => {
     const [history, setHistory] = useState([Array(9).fill(null)])
     const [stepNumber, setStepNumber] = useState(0)
     const[xIsNext, setXisNext] = useState(true)
-   const winner = calculateWinner(history[stepNUmber])
+   const winner = calculateWinner(history[stepNumber])
    const xO = xIsNext ? "X" : "O"
 
-   const handleClick - (i) => {
+   const handleClick = (i) => {
         const historyPoint = history.slice(0, stepNumber + 1)
-        const current = historyPoint[stepNUmber]
-        const squares = [...currrent]
+        const current = historyPoint[stepNumber]
+        const squares = [...current]
         //return if won or occupied
         if (winner || squares[i]) return
         // select squares
@@ -29,7 +29,7 @@ const Game = () => {
 
     const renderMoves = () => 
         history.map((_step, move) => {
-            const destination = move ? 'Go to move #${move}' : "Go to Start"
+            const destination = move ? `Go to move #${move}` : "Go to Start"
             return (
                 <li key={move}>
                     <button onClick={() => jumpTo(move)}>{destination}</button>
